@@ -1,57 +1,53 @@
-'use client';
-
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Button from '@/components/ui/Button';
 import { Loader2, CheckCircle } from 'lucide-react';
-
-// Mock Data (Must match nominees page for demo consistency)
-const mockNominees = [
-    {
-        id: '1',
-        name: 'Sarah Johnson',
-        category: 'Technology & Innovation',
-        bio: 'Founder of TechFarm, an AI-driven agricultural platform.',
-    },
-    {
-        id: '2',
-        name: 'David Osei',
-        category: 'Business & Entrepreneurship',
-        bio: 'CEO of Pan-African Logistics, expanding trade routes across 15 countries.',
-    },
-    // Add other matches...
-];
+import { nominees } from '@/lib/mockData';
 
 function VoteContent() {
     const searchParams = useSearchParams();
     const nomineeId = searchParams.get('nomineeId');
+    const [nominee, setNominee] = useState<any>(null);
     const [isVoting, setIsVoting] = useState(false);
     const [isVoted, setIsVoted] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const nominee = mockNominees.find(n => n.id === nomineeId);
+    useEffect(() => {
+        if (nomineeId) {
+            const found = nominees.find(n => n.id === nomineeId);
+            setNominee(found);
+
+            // Check if already voted
+            const votes = JSON.parse(localStorage.getItem('votes') || '[]');
+            if (votes.includes(nomineeId)) {
+                setError('You have already voted for this nominee on this device.');
+            }
+        }
+    }, [nomineeId]);
 
     const handleVote = async () => {
         if (!nomineeId) return;
 
         setIsVoting(true);
         setError(null);
-        try {
-            const response = await fetch('/api/votes', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nomineeId }),
-            });
 
-            if (response.status === 409) {
-                setError('You have already voted for this nominee.');
+        try {
+            // Check localStorage for existing votes
+            const votes = JSON.parse(localStorage.getItem('votes') || '[]');
+
+            if (votes.includes(nomineeId)) {
+                setError('You have already voted for this nominee on this device.');
+                setIsVoting(false);
                 return;
             }
 
-            if (!response.ok) {
-                throw new Error('Vote failed');
-            }
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Store vote in localStorage
+            votes.push(nomineeId);
+            localStorage.setItem('votes', JSON.stringify(votes));
 
             setIsVoted(true);
         } catch (err) {
@@ -95,7 +91,7 @@ function VoteContent() {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--primary)] rounded-full blur-[50px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
                     <p className="text-[var(--primary)] font-bold uppercase tracking-widest text-xs mb-2">Cast Your Vote For</p>
                     <h1 className="text-3xl font-black">{nominee.name}</h1>
-                    <p className="text-gray-400 text-sm mt-2">{nominee.category}</p>
+                    <p className="text-gray-400 text-sm mt-2">{nominee.category?.name}</p>
                 </div>
 
                 <div className="p-8">

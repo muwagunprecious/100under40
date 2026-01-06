@@ -1,46 +1,25 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Search, Filter, Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { Search, Filter } from 'lucide-react';
 import Card, { CardContent } from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
-
-// Categories will be fetched from the database
-
+import { nominees, categories } from '@/lib/mockData';
 
 export default function NomineesPage() {
-    const [nominees, setNominees] = useState<any[]>([]);
-    const [categories, setCategories] = useState<any[]>([]);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/nominees');
-                if (res.ok) {
-                    const data = await res.json();
-                    setNominees(data.nominees);
-                    setCategories(['All', ...data.categories.map((c: any) => c.name)]);
-                }
-            } catch (error) {
-                console.error('Failed to fetch nominees:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchData();
-    }, []);
+    const categoryNames = ['All', ...categories.map(c => c.name)];
 
     const filteredNominees = nominees.filter((nominee) => {
         const matchesCategory = selectedCategory === 'All' || nominee.category?.name === selectedCategory;
         const matchesSearch = nominee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             nominee.bio.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
+        return matchesCategory && matchesSearch && nominee.published;
     });
 
     return (
@@ -87,12 +66,9 @@ export default function NomineesPage() {
                 </div>
             </div>
 
+            {/* Grid */}
             <div className="container mx-auto px-4">
-                {isLoading ? (
-                    <div className="flex justify-center py-20">
-                        <Loader2 className="h-10 w-10 animate-spin text-[var(--primary)]" />
-                    </div>
-                ) : filteredNominees.length > 0 ? (
+                {filteredNominees.length > 0 ? (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredNominees.map((nominee) => (
                             <Card key={nominee.id} hover className="overflow-hidden group h-full flex flex-col">

@@ -35,7 +35,7 @@ const mockNominees = [
     // Add more mock data as needed
 ];
 
-export default async function NomineeProfilePage({ params }: { params: { id: string } }) {
+export default async function NomineeProfilePage({ params }: { params: Promise<{ id: string }> }) {
     // In Next.js 15, params is async 
     const resolvedParams = await params;
     const nominee = mockNominees.find(n => n.id === resolvedParams.id);

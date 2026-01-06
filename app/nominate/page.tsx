@@ -36,7 +36,7 @@ export default function NominatePage() {
         formState: { errors },
         reset,
     } = useForm<NominationFormData>({
-        resolver: zodResolver(nominationSchema),
+        resolver: zodResolver(nominationSchema) as any,
     });
 
     const onSubmit = async (data: NominationFormData) => {

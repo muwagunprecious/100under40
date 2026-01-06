@@ -38,7 +38,7 @@ export default function NomineesPage() {
                 <div className="flex flex-col md:flex-row gap-6 justify-between items-center bg-white p-4 rounded-xl shadow-sm">
                     {/* Category Tabs */}
                     <div className="flex overflow-x-auto pb-2 md:pb-0 gap-2 w-full md:w-auto no-scrollbar">
-                        {categories.map((cat) => (
+                        {categoryNames.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}

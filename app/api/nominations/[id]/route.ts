@@ -19,19 +19,30 @@ export async function PATCH(
             data: { status },
         });
 
-        // If approved, strictly speaking we should create a Nominee record here
-        // or trigger a conversion process. For this MVP we just update status.
-        // In full implementation:
-        /*
-        if (status === 'approved' && !nomination.nomineeId) {
-           await prisma.nominee.create({
-              data: { ... }
-           })
+        if (status === 'approved') {
+            // Check if nominee already exists
+            const existingNominee = await prisma.nominee.findFirst({
+                where: {
+                    name: nomination.nomineeName,
+                    categoryId: nomination.categoryId
+                }
+            });
+
+            if (!existingNominee) {
+                await prisma.nominee.create({
+                    data: {
+                        name: nomination.nomineeName,
+                        categoryId: nomination.categoryId,
+                        bio: nomination.achievements,
+                        published: true
+                    }
+                });
+            }
         }
-        */
 
         return NextResponse.json(nomination);
     } catch (error) {
+        console.error('Update nomination error:', error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
 }

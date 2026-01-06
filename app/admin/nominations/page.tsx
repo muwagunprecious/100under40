@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Check, X, Eye, Filter } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Check, X, Eye, Filter, Loader2 } from 'lucide-react';
 import Card, { CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 
@@ -15,12 +15,43 @@ const initialNominations = [
 ];
 
 export default function NominationsManagementPage() {
-    const [nominations, setNominations] = useState(initialNominations);
+    const [nominations, setNominations] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState('all');
 
-    const handleStatusChange = (id: string, newStatus: string) => {
-        // In real app, call API here
-        setNominations(prev => prev.map(n => n.id === id ? { ...n, status: newStatus } : n));
+    const fetchNominations = async () => {
+        setIsLoading(true);
+        try {
+            const res = await fetch('/api/nominations');
+            if (res.ok) {
+                const data = await res.json();
+                setNominations(data);
+            }
+        } catch (error) {
+            console.error('Failed to fetch nominations:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchNominations();
+    }, []);
+
+    const handleStatusChange = async (id: string, newStatus: string) => {
+        try {
+            const res = await fetch(`/api/nominations/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus }),
+            });
+
+            if (res.ok) {
+                setNominations(prev => prev.map(n => n.id === id ? { ...n, status: newStatus } : n));
+            }
+        } catch (error) {
+            console.error('Failed to update status:', error);
+        }
     };
 
     const filteredNominations = nominations.filter(n => filter === 'all' || n.status === filter);
@@ -38,8 +69,8 @@ export default function NominationsManagementPage() {
                             key={status}
                             onClick={() => setFilter(status)}
                             className={`px-4 py-2 rounded-lg text-sm font-bold capitalize transition-all ${filter === status
-                                    ? 'bg-black text-white'
-                                    : 'bg-white text-gray-500 hover:bg-gray-100'
+                                ? 'bg-black text-white'
+                                : 'bg-white text-gray-500 hover:bg-gray-100'
                                 }`}
                         >
                             {status}
@@ -62,12 +93,21 @@ export default function NominationsManagementPage() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
-                            {filteredNominations.map((nomination) => (
+                            {isLoading ? (
+                                <tr>
+                                    <td colSpan={6} className="p-8 text-center text-gray-500">
+                                        <Loader2 className="h-6 w-6 animate-spin mx-auto mb-2" />
+                                        Loading nominations...
+                                    </td>
+                                </tr>
+                            ) : filteredNominations.map((nomination) => (
                                 <tr key={nomination.id} className="hover:bg-gray-50 transition-colors">
-                                    <td className="p-4 font-bold text-black">{nomination.nominee}</td>
-                                    <td className="p-4 text-sm text-gray-600">{nomination.category}</td>
-                                    <td className="p-4 text-sm text-gray-600">{nomination.nominator}</td>
-                                    <td className="p-4 text-sm text-gray-500">{nomination.date}</td>
+                                    <td className="p-4 font-bold text-black">{nomination.nomineeName}</td>
+                                    <td className="p-4 text-sm text-gray-600">{nomination.category?.name || nomination.categoryId}</td>
+                                    <td className="p-4 text-sm text-gray-600">{nomination.nominatorName}</td>
+                                    <td className="p-4 text-sm text-gray-500">
+                                        {new Date(nomination.createdAt).toLocaleDateString()}
+                                    </td>
                                     <td className="p-4">
                                         <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide
                       ${nomination.status === 'approved' ? 'bg-green-100 text-green-700' :

@@ -1,67 +1,43 @@
 'use client';
 
-import { useState } from 'react';
-import { Search, Filter } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Search, Filter, Loader2 } from 'lucide-react';
 import Card, { CardContent } from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Mock Nominee Data
-const mockNominees = [
-    {
-        id: '1',
-        name: 'Sarah Johnson',
-        category: 'Technology & Innovation',
-        photoUrl: '/placeholder-avatar.jpg', // We would use real images
-        bio: 'Founder of TechFarm, an AI-driven agricultural platform.',
-    },
-    {
-        id: '2',
-        name: 'David Osei',
-        category: 'Business & Entrepreneurship',
-        photoUrl: '/placeholder-avatar.jpg',
-        bio: 'CEO of Pan-African Logistics, expanding trade routes across 15 countries.',
-    },
-    {
-        id: '3',
-        name: 'Zainab Ahmed',
-        category: 'Social Impact',
-        photoUrl: '/placeholder-avatar.jpg',
-        bio: 'Director of the "Education for All" initiative in Northern Nigeria.',
-    },
-    {
-        id: '4',
-        name: 'Michael Kibuuka',
-        category: 'Technology & Innovation',
-        photoUrl: '/placeholder-avatar.jpg',
-        bio: 'CTO of FinConnect, revolutionizing mobile payments.',
-    },
-    {
-        id: '5',
-        name: 'Amara Diop',
-        category: 'Creative Arts',
-        photoUrl: '/placeholder-avatar.jpg',
-        bio: 'Award-winning contemporary artist and sculptor.',
-    }
-];
+// Categories will be fetched from the database
 
-const categories = [
-    'All',
-    'Technology & Innovation',
-    'Business & Entrepreneurship',
-    'Social Impact',
-    'Creative Arts',
-    'Media & Journalism',
-];
 
 export default function NomineesPage() {
+    const [nominees, setNominees] = useState<any[]>([]);
+    const [categories, setCategories] = useState<any[]>([]);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
-    const filteredNominees = mockNominees.filter((nominee) => {
-        const matchesCategory = selectedCategory === 'All' || nominee.category === selectedCategory;
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/nominees');
+                if (res.ok) {
+                    const data = await res.json();
+                    setNominees(data.nominees);
+                    setCategories(['All', ...data.categories.map((c: any) => c.name)]);
+                }
+            } catch (error) {
+                console.error('Failed to fetch nominees:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const filteredNominees = nominees.filter((nominee) => {
+        const matchesCategory = selectedCategory === 'All' || nominee.category?.name === selectedCategory;
         const matchesSearch = nominee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             nominee.bio.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
@@ -88,8 +64,8 @@ export default function NomineesPage() {
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
                                 className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-bold transition-all ${selectedCategory === cat
-                                        ? 'bg-[var(--primary)] text-black'
-                                        : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                                    ? 'bg-[var(--primary)] text-black'
+                                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                                     }`}
                             >
                                 {cat}
@@ -111,9 +87,12 @@ export default function NomineesPage() {
                 </div>
             </div>
 
-            {/* Grid */}
             <div className="container mx-auto px-4">
-                {filteredNominees.length > 0 ? (
+                {isLoading ? (
+                    <div className="flex justify-center py-20">
+                        <Loader2 className="h-10 w-10 animate-spin text-[var(--primary)]" />
+                    </div>
+                ) : filteredNominees.length > 0 ? (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredNominees.map((nominee) => (
                             <Card key={nominee.id} hover className="overflow-hidden group h-full flex flex-col">
@@ -122,10 +101,18 @@ export default function NomineesPage() {
                                     <div className="absolute inset-0 flex items-center justify-center text-gray-400">
                                         <span className="text-4xl font-bold opacity-20">{nominee.name.charAt(0)}</span>
                                     </div>
+                                    {nominee.photoUrl && (
+                                        <Image
+                                            src={nominee.photoUrl}
+                                            alt={nominee.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    )}
                                 </div>
                                 <CardContent className="p-6 flex-grow flex flex-col">
                                     <div className="text-xs font-bold text-[var(--primary-dark)] uppercase tracking-wider mb-2">
-                                        {nominee.category}
+                                        {nominee.category?.name}
                                     </div>
                                     <h3 className="text-2xl font-bold mb-2 group-hover:text-[var(--primary-dark)] transition-colors">
                                         {nominee.name}

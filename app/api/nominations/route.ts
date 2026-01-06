@@ -59,3 +59,19 @@ export async function POST(request: Request) {
         );
     }
 }
+
+export async function GET() {
+    try {
+        const nominations = await prisma.nomination.findMany({
+            orderBy: { createdAt: 'desc' },
+            include: { category: true }
+        });
+        return NextResponse.json(nominations);
+    } catch (error) {
+        console.error('Fetch nominations error:', error);
+        return NextResponse.json(
+            { error: 'Internal server error' },
+            { status: 500 }
+        );
+    }
+}

@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  description String?
+  order       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  nominations Nomination[]
+  nominees    Nominee[]
+}
+
+model Nomination {
+  id                String   @id @default(cuid())
+  // Nominee details
+  nomineeName       String
+  nomineeEmail      String
+  nomineePhone      String?
+  nomineeAge        Int
+  achievements      String   @db.Text
+  supportingDocs    String?  // JSON array of URLs
+  
+  // Category
+  categoryId        String
+  category          Category @relation(fields: [categoryId], references: [id])
+  
+  // Nominator details
+  nominatorName     String
+  nominatorEmail    String
+  nominatorPhone    String?
+  
+  // Status
+  status            String   @default("pending") // pending, approved, rejected
+  adminNotes        String?  @db.Text
+  
+  // Timestamps
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  reviewedAt        DateTime?
+  reviewedBy        String?  // Admin user ID
+  
+  // Converted nominee
+  nomineeId         String?  @unique
+  nominee           Nominee? @relation(fields: [nomineeId], references: [id])
+}
+
+model Nominee {
+  id              String      @id @default(cuid())
+  name            String
+  email           String      @unique
+  phone           String?
+  age             Int
+  bio             String      @db.Text
+  achievements    String      @db.Text
+  photoUrl        String?
+  socialLinks     String?     // JSON object
+  
+  // Category
+  categoryId      String
+  category        Category    @relation(fields: [categoryId], references: [id])
+  
+  // Status
+  published       Boolean     @default(false)
+  
+  // Timestamps
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  // Relations
+  nomination      Nomination?
+  votes           Vote[]
+}
+
+model Vote {
+  id          String   @id @default(cuid())
+  nomineeId   String
+  nominee     Nominee  @relation(fields: [nomineeId], references: [id])
+  
+  // Voter identification (IP-based or email)
+  voterEmail  String?
+  voterIp     String?
+  
+  // Metadata
+  createdAt   DateTime @default(now())
+  
+  @@unique([nomineeId, voterEmail])
+  @@unique([nomineeId, voterIp])
+  @@index([nomineeId])
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hashed
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

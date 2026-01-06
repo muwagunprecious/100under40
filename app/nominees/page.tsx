@@ -40,14 +40,14 @@ export default function NomineesPage() {
                     <div className="flex overflow-x-auto pb-2 md:pb-0 gap-2 w-full md:w-auto no-scrollbar">
                         {categories.map((cat) => (
                             <button
-                                key={cat}
-                                onClick={() => setSelectedCategory(cat)}
-                                className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-bold transition-all ${selectedCategory === cat
+                                key={cat.id}
+                                onClick={() => setSelectedCategory(cat.name)}
+                                className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-bold transition-all ${selectedCategory === cat.name
                                     ? 'bg-[var(--primary)] text-black'
                                     : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                                     }`}
                             >
-                                {cat}
+                                {cat.name}
                             </button>
                         ))}
                     </div>

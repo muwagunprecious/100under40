@@ -10,6 +10,8 @@ import Textarea from '@/components/ui/Textarea';
 import { Loader2, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import NominationPopup from '@/components/nomination/NominationPopup';
+import { useEffect } from 'react';
 
 // Mock categories for dropdown
 const categories = [
@@ -29,6 +31,17 @@ export default function NominatePage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+        // Nomination starts February 28th, 2026
+        const startDate = new Date('2026-02-28');
+        const currentDate = new Date();
+
+        if (currentDate < startDate) {
+            setShowPopup(true);
+        }
+    }, []);
 
     const {
         register,
@@ -40,6 +53,15 @@ export default function NominatePage() {
     });
 
     const onSubmit = async (data: NominationFormData) => {
+        // Double check start date on submission
+        const startDate = new Date('2026-02-28');
+        const currentDate = new Date();
+
+        if (currentDate < startDate) {
+            setShowPopup(true);
+            return;
+        }
+
         setIsSubmitting(true);
         setError(null);
         try {
@@ -100,6 +122,7 @@ export default function NominatePage() {
 
     return (
         <div className="min-h-screen bg-[var(--grey-soft)] py-20 px-4">
+            <NominationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
             <div className="container mx-auto max-w-3xl">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-black mb-4">Nominate a Leader</h1>

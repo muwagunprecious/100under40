@@ -17,10 +17,10 @@
   /* Input backgrounds, secondary elements */
 
   --white: #FFFFFF;
-  --white-muted: #A3A3A3;
-  /* Neutral gray for body text */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  /* Very subtle borders */
+  --white-muted: #D4D4D4;
+  /* Darkened from #A3A3A3 for better contrast */
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  /* Increased visibility */
 
   /* Semantic Colors */
   --success: #C8FF00;
@@ -88,6 +88,33 @@ p {
   font-size: 1.05rem;
 }
 
+/* Light Container Contrast Fixes */
+.bg-white h1,
+.bg-white h2,
+.bg-white h3,
+.bg-white h4,
+.bg-white h5,
+.bg-white h6,
+.bg-gray-50 h1,
+.bg-gray-50 h2,
+.bg-gray-50 h3,
+.bg-gray-50 h4,
+.bg-gray-50 h5,
+.bg-gray-50 h6 {
+  color: var(--black) !important;
+}
+
+.bg-white p,
+.bg-gray-50 p {
+  color: #444 !important;
+}
+
+.bg-white .text-gray-500,
+.bg-gray-50 .text-gray-500 {
+  color: #666 !important;
+}
+
+
 /* ===== Utility Classes ===== */
 .container {
   width: 100%;
@@ -114,4 +141,37 @@ p {
 
 .hover-lift:hover {
   transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes scale-in {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
 }

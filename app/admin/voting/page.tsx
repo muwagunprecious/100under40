@@ -1,75 +1,47 @@
-'use client';
-
-import { useState } from 'react';
-import Card, { CardTitle, CardContent } from '@/components/ui/Card';
-import { BarChart3, TrendingUp, PieChart } from 'lucide-react';
-import { votingStats } from '@/lib/mockData';
+import Card, { CardContent } from '@/components/ui/Card';
+import { BarChart3, Lock, ShieldCheck, Timer } from 'lucide-react';
 
 export default function VotingAnalyticsPage() {
-    const { categoryVotes, topNominees } = votingStats;
-
     return (
-        <div className="space-y-8 animate-fade-in">
-            <div>
-                <h1 className="text-3xl font-black mb-1">Voting Analytics</h1>
-                <p className="text-gray-500">Real-time insights into voting trends. <span className="text-red-500 font-bold ml-2">CONFIDENTIAL</span></p>
+        <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-8 animate-fade-in max-w-4xl mx-auto text-center">
+            <div className="relative">
+                <div className="absolute inset-0 bg-[var(--primary)]/20 blur-[100px] rounded-full"></div>
+                <div className="relative w-32 h-32 bg-[#0A0A0A] border border-white/5 rounded-[2.5rem] flex items-center justify-center shadow-2xl overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <Lock className="w-12 h-12 text-[var(--primary)] relative z-10" />
+                </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-                {/* Category Breakdown */}
-                <Card className="border-none shadow-sm overflow-hidden">
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-6">
-                            <PieChart className="h-5 w-5 text-gray-400" />
-                            <CardTitle>Category Distribution</CardTitle>
-                        </div>
-                        <div className="space-y-6">
-                            {categoryVotes.map((cat: any, i: number) => (
-                                <div key={i}>
-                                    <div className="flex justify-between text-sm mb-2">
-                                        <span className="font-bold text-gray-700">{cat.category}</span>
-                                        <span className="text-gray-500">{cat.votes.toLocaleString()} votes ({cat.percentage}%)</span>
-                                    </div>
-                                    <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-                                        <div
-                                            className="h-full bg-[var(--primary)] rounded-full transition-all duration-1000"
-                                            style={{ width: `${cat.percentage}%` }}
-                                        ></div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
+            <div className="space-y-4 relative z-10">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-4">
+                    <ShieldCheck className="w-4 h-4 text-[var(--primary)]" />
+                    <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Institutional Securities Active</span>
+                </div>
+                <h1 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none">
+                    Analytics <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/20">Under Seal</span>
+                </h1>
+                <p className="text-gray-500 text-lg font-medium max-w-xl mx-auto leading-relaxed">
+                    Real-time voting intelligence is currently encrypted. Analytics will activate automatically upon the official conclusion of the vetting phase.
+                </p>
+            </div>
 
-                {/* Top Nominees */}
-                <Card className="border-none shadow-sm overflow-hidden">
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-6">
-                            <TrendingUp className="h-5 w-5 text-gray-400" />
-                            <CardTitle>Top Performers</CardTitle>
-                        </div>
-
-                        <div className="space-y-4">
-                            {topNominees.map((nominee: any, i: number) => (
-                                <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                                    <div className="flex items-center gap-4">
-                                        <span className={`w-6 h-6 flex items-center justify-center font-black text-sm rounded ${i < 3 ? 'bg-yellow-400 text-black' : 'bg-gray-200 text-gray-600'}`}>
-                                            {i + 1}
-                                        </span>
-                                        <div>
-                                            <p className="font-bold text-black">{nominee.name}</p>
-                                            <p className="text-xs text-gray-500">{nominee.category}</p>
-                                        </div>
-                                    </div>
-                                    <div className="font-mono font-bold text-lg">
-                                        {nominee.votes.toLocaleString()}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full pt-12">
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl text-left hover:border-white/10 transition-colors group">
+                    <Timer className="w-6 h-6 text-gray-600 mb-6 group-hover:text-[var(--primary)] transition-colors" />
+                    <h3 className="text-white font-black uppercase text-xs tracking-widest mb-2">Activation</h3>
+                    <p className="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Phase 3 Deployment</p>
+                </div>
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl text-left hover:border-white/10 transition-colors group">
+                    <BarChart3 className="w-6 h-6 text-gray-600 mb-6 group-hover:text-[var(--primary)] transition-colors" />
+                    <h3 className="text-white font-black uppercase text-xs tracking-widest mb-2">Metrics</h3>
+                    <p className="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Category Distribution</p>
+                </div>
+                <div className="p-8 bg-[#0A0A0A] border border-white/5 rounded-3xl text-left hover:border-white/10 transition-colors group">
+                    <ShieldCheck className="w-6 h-6 text-gray-600 mb-6 group-hover:text-[var(--primary)] transition-colors" />
+                    <h3 className="text-white font-black uppercase text-xs tracking-widest mb-2">Protocol</h3>
+                    <p className="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">AES-256 Verified</p>
+                </div>
             </div>
         </div>
     );

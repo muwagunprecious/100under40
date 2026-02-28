@@ -210,6 +210,6 @@ export const votingStats = {
 
 // Admin credentials
 export const adminCredentials = {
-    email: 'admin@example.com',
+    email: 'admin@100under40.org',
     password: 'admin123'
 };

@@ -3,13 +3,18 @@ import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
     HTMLDivElement,
-    React.HTMLAttributes<HTMLDivElement> & { hover?: boolean }
->(({ className, hover = false, ...props }, ref) => (
+    React.HTMLAttributes<HTMLDivElement> & { hover?: boolean; variant?: 'light' | 'dark' }
+>(({ className, hover = false, variant = 'light', ...props }, ref) => (
     <div
         ref={ref}
         className={cn(
-            "rounded-sm border border-white/5 bg-[#0A0A0A] text-white transition-all duration-300 relative", // Charcoal bg, subtle border
-            hover && "hover:-translate-y-1 hover:border-[var(--primary)]/50 hover:shadow-lg group", // Minimal lift, no neon glow
+            "rounded-xl border transition-all duration-300 relative overflow-hidden",
+            variant === 'dark'
+                ? "bg-[#0A0A0A] border-white/5 text-white"
+                : "bg-white border-gray-200 text-black shadow-sm",
+            hover && (variant === 'dark'
+                ? "hover:-translate-y-1 hover:border-[var(--primary)]/50 hover:shadow-2xl group"
+                : "hover:-translate-y-1 hover:shadow-md group"),
             className
         )}
         {...props}
@@ -42,7 +47,7 @@ const CardTitle = React.forwardRef<
     <h3
         ref={ref}
         className={cn(
-            "text-xl font-semibold leading-tight text-white group-hover:text-white transition-colors", // No color change on text
+            "text-xl font-bold leading-tight",
             className
         )}
         {...props}

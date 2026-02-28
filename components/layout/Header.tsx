@@ -54,8 +54,8 @@ export default function Header() {
                 {/* Minimal CTA */}
                 <div className="hidden md:block">
                     <Link href="/nominate">
-                        <Button size="sm" variant="outline" className="px-6 border-white/20 text-white hover:bg-white hover:text-black hover:border-white">
-                            Register Nomination
+                        <Button size="sm" variant="primary" className="px-6 rounded-sm font-bold tracking-tight">
+                            Nominate Now
                         </Button>
                     </Link>
                 </div>
@@ -71,22 +71,22 @@ export default function Header() {
 
             {/* Mobile Menu Overlay */}
             <div className={cn(
-                "fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center space-y-8 transition-opacity duration-300",
-                isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                "fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300",
+                isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
             )}>
                 {['About', 'Categories', 'Nominees', 'Vote'].map((item) => (
                     <Link
                         key={item}
                         href={`/${item.toLowerCase()}`}
-                        className="text-2xl font-medium text-white hover:text-[var(--primary)] transition-colors"
+                        className="text-2xl font-black text-white hover:text-[var(--primary)] transition-colors uppercase tracking-widest"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         {item}
                     </Link>
                 ))}
-                <div className="pt-8">
+                <div className="pt-8 w-full px-12 max-w-xs">
                     <Link href="/nominate" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Button size="md" variant="primary">Start Nomination</Button>
+                        <Button size="lg" className="w-full font-black rounded-sm">Nominate Now</Button>
                     </Link>
                 </div>
             </div>

@@ -17,26 +17,26 @@ export default function Home() {
           </span>
 
           {/* Calm, Authoritative Headline */}
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-white mb-8 leading-[1.1]">
-            Recognizing Africa’s <br /> Next Generation of <span className="text-[var(--primary)] font-normal italic">Leaders</span>.
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-8 leading-[1]">
+            Honoring Africa’s <br /> Most <span className="text-[var(--primary)]">Consequential</span> Leaders.
           </h1>
 
           {/* Muted Subtext */}
-          <p className="text-lg md:text-xl text-[#888] font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            The 100 Under 40 Awards identifies, verifies, and honors the most consequential young achievers shaping the continent's future across industry, governance, and culture.
+          <p className="text-lg md:text-xl text-gray-300 font-medium max-w-3xl mx-auto mb-12 leading-relaxed">
+            The 100 Under 40 Award is the continent’s premier recognition platform, identifying exceptional young Africans driving measurable, sustainable, and transformative impact across 25 strategic sectors.
           </p>
 
           {/* Deliberate CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link href="/nominate">
-              <Button size="lg" variant="primary" className="min-w-[200px] rounded-sm">
-                Submit Nomination
+              <Button size="lg" variant="primary" className="min-w-[240px] rounded-sm font-black text-lg shadow-[0_20px_50px_rgba(200,255,0,0.15)]">
+                Nominate a Leader
               </Button>
             </Link>
             <Link href="/about">
-              <span className="text-sm font-semibold uppercase tracking-widest text-[#666] hover:text-white transition-colors border-b border-transparent hover:border-white pb-1 cursor-pointer">
-                Learn About Our Mission
-              </span>
+              <Button variant="outline" className="min-w-[200px] border-white/10 text-white hover:bg-white hover:text-black font-bold">
+                Read Our Methodology
+              </Button>
             </Link>
           </div>
         </div>
@@ -71,24 +71,25 @@ export default function Home() {
 
             {/* Text Content */}
             <div className="lg:w-1/2">
-              <span className="badge-label">Our Mandate</span>
-              <h2 className="text-3xl md:text-5xl text-white mb-8">
-                We don't just give awards. <br /> We verify <span className="text-[var(--primary)]">excelence</span>.
+              <span className="badge-label">The Mission</span>
+              <h2 className="text-4xl md:text-6xl text-white mb-8 font-black leading-tight">
+                Identifying the Architects of <span className="text-[var(--primary)]">Africa's Future</span>.
               </h2>
-              <div className="space-y-6 text-[#999] text-lg font-light leading-relaxed max-w-xl">
+              <div className="space-y-6 text-gray-300 text-lg font-medium leading-relaxed max-w-xl">
                 <p>
-                  In an era of noise, the 100 Under 40 Awards serves as a definitive roster of high-impact individuals. An initiative of Achievers Summit, our selection process is rigorous, data-driven, and devoid of hype.
+                  The 100 Under 40 Award is not just a ceremony; it is a rigorous verification of excellence. We exist to spotlight the young visionaries who are solving the continent's most complex challenges through innovation, governance, and enterprise.
                 </p>
                 <p>
-                  We are building a network of credible leadership that investors, partners, and the public can trust for the next 50 years.
+                  Under the stewardship of the Achievers Summit, we are curating a definitive roster of high-impact leaders—building a credible network that stakeholders can trust for decades to come.
                 </p>
               </div>
 
-              <div className="mt-10">
-                <Link href="/about">
-                  <Button variant="outline" className="border-white/20 text-white hover:text-black hover:bg-white rounded-sm">
-                    Read the Methodology
-                  </Button>
+              <div className="mt-12 flex items-center gap-6">
+                <Link href="/nominate">
+                  <Button className="font-bold px-8">Start a Nomination</Button>
+                </Link>
+                <Link href="/about" className="text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+                  Learn More
                 </Link>
               </div>
             </div>

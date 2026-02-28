@@ -24,8 +24,8 @@ export default function Footer() {
 
                         {/* Initiative Branding - High Priority */}
                         <div className="bg-[#1a1a1a] p-4 rounded-lg border border-[#333]">
-                            <p className="text-[10px] uppercase tracking-widest text-[#888] mb-1">An Initiative of</p>
-                            <h4 className="text-lg font-bold text-white tracking-tight">ACHIEVERS SUMMIT</h4>
+                            <p className="text-[10px] uppercase tracking-[0.4em] text-white font-black mb-1">An Initiative of</p>
+                            <h4 className="text-lg font-black text-white tracking-tight">ACHIEVERS SUMMIT</h4>
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-gray-400 text-sm">
                                 <MapPin className="h-5 w-5 text-[var(--primary)] shrink-0" />
-                                <span>Radisson Blu Hotel,<br />Nairobi Upper Hill, Kenya</span>
+                                <span>Lagos Nigeria</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-400 text-sm">
                                 <Mail className="h-5 w-5 text-[var(--primary)] shrink-0" />

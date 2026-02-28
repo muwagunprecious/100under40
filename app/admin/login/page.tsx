@@ -79,7 +79,7 @@ export default function AdminLoginPage() {
                         </Button>
 
                         <p className="text-xs text-center text-gray-500 mt-4">
-                            Demo: admin@example.com / admin123
+                            Demo: admin@100under40.org / admin123
                         </p>
                     </form>
                 </CardContent>

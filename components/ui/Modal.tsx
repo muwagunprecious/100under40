@@ -11,6 +11,7 @@ interface ModalProps {
     title?: string;
     className?: string;
     showCloseButton?: boolean;
+    variant?: 'default' | 'premium';
 }
 
 export default function Modal({
@@ -20,6 +21,7 @@ export default function Modal({
     title,
     className,
     showCloseButton = true,
+    variant = 'default',
 }: ModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -43,21 +45,32 @@ export default function Modal({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
             <div
                 ref={modalRef}
                 className={cn(
-                    "bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 duration-300",
+                    "rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 duration-300 border",
+                    variant === 'premium'
+                        ? "bg-[var(--charcoal)] border-white/10 text-white"
+                        : "bg-white border-gray-100 text-black",
                     className
                 )}
             >
                 {(title || showCloseButton) && (
-                    <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                        {title && <h3 className="text-xl font-bold">{title}</h3>}
+                    <div className={cn(
+                        "flex items-center justify-between p-6 border-b",
+                        variant === 'premium' ? "border-white/5" : "border-gray-50"
+                    )}>
+                        {title && <h3 className="text-xl font-bold tracking-tight">{title}</h3>}
                         {showCloseButton && (
                             <button
                                 onClick={onClose}
-                                className="p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-500 hover:text-black"
+                                className={cn(
+                                    "p-2 rounded-full transition-colors",
+                                    variant === 'premium'
+                                        ? "hover:bg-white/10 text-gray-400 hover:text-white"
+                                        : "hover:bg-gray-100 text-gray-500 hover:text-black"
+                                )}
                             >
                                 <X className="w-5 h-5" />
                             </button>

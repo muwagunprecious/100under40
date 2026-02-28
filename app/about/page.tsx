@@ -9,12 +9,12 @@ export default function AboutPage() {
                 <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,_var(--primary-dark)_0%,_transparent_25%)] opacity-20"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl md:text-6xl font-black mb-6">
-                            Celebrating Africa's <br />
-                            <span className="text-[var(--primary)]">Future Leaders</span>
+                        <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+                            <span className="text-[var(--primary)]">Africa's Most</span> <br />
+                            <span className="text-[var(--primary)] text-shadow-glow">Consequential Leaders</span>
                         </h1>
-                        <p className="text-xl text-gray-300 leading-relaxed">
-                            The 100 Under 40 Awards is dedicated to recognizing the exceptional achievements of young Africans who are driving change, innovation, and progress across the continent.
+                        <p className="text-xl !text-white leading-relaxed font-bold">
+                            Identifying, verifying, and amplifying the stories of the continent's most impactful young achievers through a rigorous, data-driven recognition framework.
                         </p>
                     </div>
                 </div>
@@ -25,15 +25,15 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-6">
-                            <h2 className="text-3xl font-bold">Our Mission</h2>
-                            <p className="text-gray-600 text-lg leading-relaxed">
-                                To identify, honor, and amplify the voices of 100 outstanding individuals under the age of 40 who have demonstrated exceptional leadership, innovation, and impact in their respective fields. We aim to inspire the next generation by showcasing what is possible.
+                            <h2 className="text-4xl font-black tracking-tight">The Mandate</h2>
+                            <p className="text-gray-600 text-lg leading-relaxed font-medium">
+                                To identify, verify, and honor 100 outstanding individuals under the age of 40 who have demonstrated measurable and sustainable impact across the continent. We exist to provide a credible roster of leadership that stakeholders can trust for the long term.
                             </p>
 
                             <div className="pt-8">
-                                <h2 className="text-3xl font-bold mb-6">The Vision</h2>
-                                <p className="text-gray-600 text-lg leading-relaxed">
-                                    A continent where young leadership is recognized as a catalyst for sustainable development, economic growth, and social transformation.
+                                <h2 className="text-4xl font-black tracking-tight mb-6">The Horizon</h2>
+                                <p className="text-gray-600 text-lg leading-relaxed font-medium">
+                                    A continent where ethical and high-impact leadership is recognized as the ultimate catalyst for systemic transformation and economic prosperity.
                                 </p>
                             </div>
                         </div>
@@ -67,10 +67,10 @@ export default function AboutPage() {
             {/* Achievers Summit Initiative */}
             <section className="py-20 bg-black text-white relative">
                 <div className="container mx-auto px-4 text-center">
-                    <p className="text-[var(--primary)] font-bold tracking-widest uppercase mb-4">An Initiative of</p>
-                    <h2 className="text-4xl md:text-5xl font-black mb-8">ACHIEVERS SUMMIT</h2>
+                    <p className="!text-white font-black tracking-[0.4em] uppercase mb-4">An Initiative of</p>
+                    <h2 className="text-4xl md:text-5xl font-black mb-8 !text-white">ACHIEVERS SUMMIT</h2>
                     <div className="h-1 w-24 bg-[var(--primary)] mx-auto mb-8"></div>
-                    <p className="max-w-3xl mx-auto text-gray-300 text-lg leading-relaxed mb-12">
+                    <p className="max-w-3xl mx-auto !text-white text-lg leading-relaxed mb-12 font-medium">
                         The Achievers Summit is Africa's premier gathering of thought leaders, entrepreneurs, and policymakers.
                         The 100 Under 40 Awards extends our commitment to fostering leadership excellence by specifically
                         highlighting the emerging generation of changemakers.
@@ -79,17 +79,17 @@ export default function AboutPage() {
                         <div className="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
                             <Users className="h-10 w-10 text-[var(--primary)] mx-auto mb-4" />
                             <h4 className="font-bold text-xl mb-2">Networking</h4>
-                            <p className="text-sm text-gray-400">Connecting awardees with established industry leaders.</p>
+                            <p className="text-sm !text-white opacity-80 font-medium">Connecting awardees with established industry leaders.</p>
                         </div>
                         <div className="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
                             <Award className="h-10 w-10 text-[var(--primary)] mx-auto mb-4" />
                             <h4 className="font-bold text-xl mb-2">Recognition</h4>
-                            <p className="text-sm text-gray-400">Global visibility for impactful work and initiatives.</p>
+                            <p className="text-sm !text-white opacity-80 font-medium">Global visibility for impactful work and initiatives.</p>
                         </div>
                         <div className="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
                             <Calendar className="h-10 w-10 text-[var(--primary)] mx-auto mb-4" />
                             <h4 className="font-bold text-xl mb-2">Mentorship</h4>
-                            <p className="text-sm text-gray-400">Access to guidance from the Achievers Summit network.</p>
+                            <p className="text-sm !text-white opacity-80 font-medium">Access to guidance from the Achievers Summit network.</p>
                         </div>
                     </div>
                 </div>
@@ -102,19 +102,21 @@ export default function AboutPage() {
 
                     <div className="grid md:grid-cols-4 gap-4">
                         {[
-                            { step: '01', title: 'Nomination', desc: 'Public nominations open for all categories.' },
-                            { step: '02', title: 'Validation', desc: 'Initial screening by our research team.' },
-                            { step: '03', title: 'Shortlisting', desc: 'Jury selects top finalists per category.' },
-                            { step: '04', title: 'Voting', desc: 'Public voting determines the winners.' }
+                            { step: 'Phase 1', title: 'Nomination', desc: 'Public nomination submissions are securely documented for initial review.' },
+                            { step: 'Phase 2', title: 'Validation', desc: 'Rigorous data-driven screening by our internal research department.' },
+                            { step: 'Phase 3', title: 'Shortlisting', desc: 'An independent jury board selects the top finalists per sector.' },
+                            { step: 'Phase 4', title: 'Voting', desc: 'Public voting determines the final confirmed members of the class.' }
                         ].map((item, i) => (
-                            <Card key={i} className="relative pt-8 overflow-hidden hover:scale-105 transition-transform">
-                                <div className="absolute top-0 right-0 text-6xl font-black text-gray-100 -z-10">{item.step}</div>
+                            <Card key={i} className="relative pt-8 overflow-hidden hover:-translate-y-2 transition-all duration-300">
+                                <div className="absolute top-0 right-0 p-4 opacity-5">
+                                    <span className="text-4xl font-black text-black">{item.step}</span>
+                                </div>
                                 <CardContent>
-                                    <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold mb-4">
+                                    <div className="inline-flex items-center px-3 py-1 bg-black text-[var(--primary)] text-[10px] font-black uppercase tracking-widest rounded-full mb-4">
                                         {item.step}
                                     </div>
-                                    <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-                                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                                    <h3 className="font-black text-2xl mb-2 tracking-tighter uppercase">{item.title}</h3>
+                                    <p className="text-gray-600 text-sm font-medium leading-relaxed">{item.desc}</p>
                                 </CardContent>
                             </Card>
                         ))}

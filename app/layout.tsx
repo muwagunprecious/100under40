@@ -1,5 +1,4 @@
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import LayoutWrapper from '@/components/layout/LayoutWrapper';
 import './globals.css';
 
 export const metadata = {
@@ -15,11 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased bg-[var(--background)] text-[var(--foreground)]">
-        <Header />
-        <main className="min-h-screen pt-20">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );

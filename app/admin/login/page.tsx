@@ -78,9 +78,6 @@ export default function AdminLoginPage() {
                             Sign In
                         </Button>
 
-                        <p className="text-xs text-center text-gray-500 mt-4">
-                            Demo: admin@100under40.org / admin123
-                        </p>
                     </form>
                 </CardContent>
             </Card>

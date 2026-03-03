@@ -28,7 +28,7 @@ export default function StructuredData() {
         '@context': 'https://schema.org',
         '@type': 'Award',
         'name': '100 Under 40 Achievers Award',
-        'description': 'Identifying and honoring 100 outstanding young Africans under 40 across strategic sectors.',
+        'description': 'Identifying and honoring 100 outstanding young Africans under 40 across 10 strategic sectors.',
         'provider': {
             '@type': 'Organization',
             'name': 'Emmanuel Agida International'

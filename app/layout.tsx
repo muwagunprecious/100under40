@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     url: 'https://100under40.org',
     siteName: '100 Under 40 Awards',
     title: '100 Under 40 Awards | Identifying Africa\'s Consequential Leaders',
-    description: 'Recognizing 100 outstanding young Africans under 40 across strategic sectors of influence.',
+    description: 'Recognizing 100 outstanding young Africans under 40 across 10 strategic sectors of influence.',
     images: [
       {
         url: '/og-image.png',

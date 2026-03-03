@@ -23,7 +23,7 @@ export default function Home() {
 
           {/* Muted Subtext */}
           <p className="text-lg md:text-xl text-gray-300 font-medium max-w-3xl mx-auto mb-12 leading-relaxed">
-            The 100 Under 40 Award is the continent’s premier recognition platform, identifying exceptional young Africans driving measurable, sustainable, and transformative impact across 25 strategic sectors.
+            The 100 Under 40 Award is the continent’s premier recognition platform, identifying exceptional young Africans driving measurable, sustainable, and transformative impact across 10 strategic sectors.
           </p>
 
           {/* Deliberate CTAs */}

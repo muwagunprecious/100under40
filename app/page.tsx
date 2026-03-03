@@ -156,10 +156,10 @@ export default function Home() {
       {/* ================= CTA ================= */}
       <section className="py-32 bg-[#0A0A0A] border-t border-white/5 text-center">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-4xl text-white mb-6 font-semibold">Ready to make history?</h2>
-          <p className="text-[#888] text-lg font-light mb-10">
-            Nominations for the Class of 2026 are widely open. Help us identify the next generation of giants.
-          </p>
+          <h2 className="text-4xl text-white mb-6 font-black uppercase tracking-tighter">
+            NOMINATION FOR 2026 100UNDER 40 ACHIEVERS AWARD IS OFFICIALLY OPENED
+          </h2>
+
           <Link href="/nominate">
             <Button size="lg" className="px-10 py-4 uppercase tracking-widest rounded-sm bg-white text-black hover:bg-[var(--primary)] border-none">
               Begin Nomination

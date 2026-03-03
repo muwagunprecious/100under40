@@ -121,19 +121,19 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl text-white">Award Categories</h2>
             </div>
             <Link href="/categories">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#888] hover:text-[var(--primary)] transition-colors cursor-pointer">View All 25 Categories &rarr;</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#888] hover:text-[var(--primary)] transition-colors cursor-pointer">View All 10 Categories &rarr;</span>
             </Link>
           </div>
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Technology & Innovation', icon: Zap },
               { title: 'Business & Entrepreneurship', icon: Target },
-              { title: 'Social Impact & Philanthropy', icon: Globe },
-              { title: 'Creative Arts & Culture', icon: Star },
-              { title: 'Media & Journalism', icon: Users },
-              { title: 'Governance & Policy', icon: Award },
+              { title: 'Technology & Innovation', icon: Zap },
+              { title: 'Governance, Policy & Public Service', icon: Award },
+              { title: 'Finance & Investment', icon: Globe },
+              { title: 'Creative & Cultural Industries', icon: Star },
+              { title: 'Healthcare & Wellness', icon: Users },
             ].map((cat, i) => (
               <Link href="/categories" key={i}>
                 <div className="group p-8 border border-white/5 bg-[#0A0A0A] hover:border-[var(--primary)]/30 transition-all duration-300 min-h-[180px] flex flex-col justify-between cursor-pointer">

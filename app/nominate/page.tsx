@@ -15,16 +15,16 @@ import NominationPopup from '@/components/nomination/NominationPopup';
 
 // Mock categories for dropdown
 const categories = [
-    { id: 'technology', name: 'Technology & Innovation' },
-    { id: 'entrepreneurship', name: 'Business & Entrepreneurship' },
-    { id: 'social-impact', name: 'Social Impact & Philanthropy' },
-    { id: 'creative-arts', name: 'Creative Arts & Culture' },
-    { id: 'media', name: 'Media & Journalism' },
-    { id: 'governance', name: 'Leadership & Governance' },
-    { id: 'agriculture', name: 'Agriculture & Agribusiness' },
-    { id: 'education', name: 'Education & Academia' },
-    { id: 'health', name: 'Health & Wellness' },
-    { id: 'sports', name: 'Sports' },
+    { id: '1', name: 'Business & Entrepreneurship' },
+    { id: '2', name: 'Technology & Innovation' },
+    { id: '3', name: 'Governance, Policy & Public Service' },
+    { id: '4', name: 'Finance & Investment' },
+    { id: '5', name: 'Creative & Cultural Industries' },
+    { id: '6', name: 'Media & Digital Influence' },
+    { id: '7', name: 'Healthcare & Wellness' },
+    { id: '8', name: 'Education & Human Capital Development' },
+    { id: '9', name: 'Agriculture & Food Systems' },
+    { id: '10', name: 'Social Innovation, Philanthropy & Development' },
 ];
 
 export default function NominatePage() {

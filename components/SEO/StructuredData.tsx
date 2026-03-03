@@ -11,7 +11,7 @@ export default function StructuredData() {
         'sameAs': [
             'https://twitter.com/emmanuelagida',
             'https://facebook.com/100under40',
-            'https://instagram.com/100under40'
+            'https://www.instagram.com/100under40?igsh=MWo1MjJrY3Jvend6aA=='
         ],
         'founder': {
             '@type': 'Person',

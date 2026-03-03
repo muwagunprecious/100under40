@@ -96,13 +96,20 @@ export default function Footer() {
                     </p>
 
                     <div className="flex items-center gap-4">
-                        {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                        {[
+                            { Icon: Facebook, href: 'https://facebook.com/100under40' },
+                            { Icon: Twitter, href: 'https://twitter.com/100under40' },
+                            { Icon: Instagram, href: 'https://www.instagram.com/100under40?igsh=MWo1MjJrY3Jvend6aA==' },
+                            { Icon: Linkedin, href: 'https://linkedin.com/company/100under40' },
+                        ].map((social, i) => (
                             <a
                                 key={i}
-                                href="#"
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a1a1a] text-gray-400 hover:bg-[var(--primary)] hover:text-black transition-all"
                             >
-                                <Icon className="h-4 w-4" />
+                                <social.Icon className="h-4 w-4" />
                             </a>
                         ))}
                     </div>

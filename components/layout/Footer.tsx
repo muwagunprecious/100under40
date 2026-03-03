@@ -38,7 +38,6 @@ export default function Footer() {
                                 { name: 'About The Awards', href: '/about' },
                                 { name: 'Award Categories', href: '/categories' },
                                 { name: 'Nominate', href: '/nominate' },
-                                { name: 'Past Winners', href: '#' },
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link

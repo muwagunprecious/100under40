@@ -102,10 +102,10 @@ export default function AboutPage() {
 
                     <div className="grid md:grid-cols-4 gap-4">
                         {[
-                            { step: 'Phase 1', title: 'Nomination', desc: 'Public nomination submissions are securely documented for initial review.' },
+                            { step: 'Phase 1', title: 'Nomination', desc: 'Secure public submission and archival for initial review.' },
                             { step: 'Phase 2', title: 'Validation', desc: 'Rigorous data-driven screening by our internal research department.' },
-                            { step: 'Phase 3', title: 'Shortlisting', desc: 'An independent jury board selects the top finalists per sector.' },
-                            { step: 'Phase 4', title: 'Voting', desc: 'Public voting determines the final confirmed members of the class.' }
+                            { step: 'Phase 3', title: 'Public Voting', desc: 'Community validation of the shortlist [20% Weightage].' },
+                            { step: 'Phase 4', title: 'Jury Assessment', desc: 'Final executive evaluation by an independent board [80% Weightage].' }
                         ].map((item, i) => (
                             <Card key={i} className="relative pt-8 overflow-hidden hover:-translate-y-2 transition-all duration-300">
                                 <div className="absolute top-0 right-0 p-4 opacity-5">

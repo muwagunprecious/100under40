@@ -48,10 +48,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
             {[
-              { label: 'Nominees Verified', value: '500+' },
-              { label: 'Award Categories', value: '25' },
-              { label: 'Countries Represented', value: '30+' },
-              { label: 'Global Impact', value: '2M+' }
+              { label: 'Award Categories', value: '10' },
+              { label: 'Awardees', value: '100' },
+              { label: 'Countries', value: '10+' },
+              { label: 'Social Impressions', value: '1M+' }
             ].map((stat, i) => (
               <div key={i} className="flex flex-col gap-2">
                 <span className="text-[10px] uppercase tracking-[0.2em] text-[#666] font-bold">{stat.label}</span>

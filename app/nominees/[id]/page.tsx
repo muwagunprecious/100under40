@@ -13,7 +13,7 @@ export default async function NomineeProfilePage({ params }: { params: Promise<{
     if (!nominee) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center">
-                <h1 className="text-2xl font-bold mb-4">Nominee Not Found</h1>
+                <h1 className="text-2xl font-bold mb-4">Nominees would be listed soon</h1>
                 <Link href="/nominees"><Button>Back to Nominees</Button></Link>
             </div>
         );

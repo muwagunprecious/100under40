@@ -110,7 +110,7 @@ export default function CategoriesPage() {
                         </div>
 
                         <div className="space-y-2 mb-8 uppercase tracking-widest">
-                            <h2 className="text-4xl font-black text-white">GENESIS</h2>
+                            <h2 className="text-4xl font-black text-white tracking-tighter">OFFICIAL</h2>
                             <p className="text-[var(--primary)] font-bold text-[10px] tracking-[0.4em]">Official Announcement</p>
                         </div>
 

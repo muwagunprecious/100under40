@@ -128,7 +128,7 @@ export default function NominatePage() {
                         </div>
 
                         <div className="space-y-2 mb-8">
-                            <h2 className="text-5xl font-black mb-2 tracking-tighter text-white">GENESIS</h2>
+                            <h2 className="text-5xl font-black mb-2 tracking-tighter text-white">SUCCESS</h2>
                             <p className="text-[var(--primary)] font-bold tracking-[0.3em] text-xs uppercase">Nomination Confirmed</p>
                         </div>
 

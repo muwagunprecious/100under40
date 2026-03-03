@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata = {
   title: '100 Under 40 Awards',
-  description: 'Recognizing exceptional individuals under 40 across Africa. An Initiative of Achievers Summit.',
+  description: 'Recognizing exceptional individuals under 40 across Africa. An Initiative of Emmanuel Agida International.',
 };
 
 export default function RootLayout({

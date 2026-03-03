@@ -64,16 +64,16 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Achievers Summit Initiative */}
+            {/* Emmanuel Agida International Initiative */}
             <section className="py-20 bg-black text-white relative">
                 <div className="container mx-auto px-4 text-center">
                     <p className="!text-white font-black tracking-[0.4em] uppercase mb-4">An Initiative of</p>
-                    <h2 className="text-4xl md:text-5xl font-black mb-8 !text-white">ACHIEVERS SUMMIT</h2>
+                    <h2 className="text-4xl md:text-5xl font-black mb-8 !text-white">EMMANUEL AGIDA INTERNATIONAL</h2>
                     <div className="h-1 w-24 bg-[var(--primary)] mx-auto mb-8"></div>
                     <p className="max-w-3xl mx-auto !text-white text-lg leading-relaxed mb-12 font-medium">
-                        The Achievers Summit is Africa's premier gathering of thought leaders, entrepreneurs, and policymakers.
+                        Emmanuel Agida International is a global organization dedicated to youth empowerment, leadership development, and socio-economic transformation.
                         The 100 Under 40 Awards extends our commitment to fostering leadership excellence by specifically
-                        highlighting the emerging generation of changemakers.
+                        highlighting the emerging generation of changemakers across the continent.
                     </p>
                     <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <div className="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
@@ -89,7 +89,7 @@ export default function AboutPage() {
                         <div className="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
                             <Calendar className="h-10 w-10 text-[var(--primary)] mx-auto mb-4" />
                             <h4 className="font-bold text-xl mb-2">Mentorship</h4>
-                            <p className="text-sm !text-white opacity-80 font-medium">Access to guidance from the Achievers Summit network.</p>
+                            <p className="text-sm !text-white opacity-80 font-medium">Access to guidance from the Emmanuel Agida International network.</p>
                         </div>
                     </div>
                 </div>

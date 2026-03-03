@@ -25,7 +25,7 @@ export default function Footer() {
                         {/* Initiative Branding - High Priority */}
                         <div className="bg-[#1a1a1a] p-4 rounded-lg border border-[#333]">
                             <p className="text-[10px] uppercase tracking-[0.4em] text-white font-black mb-1">An Initiative of</p>
-                            <h4 className="text-lg font-black text-white tracking-tight">ACHIEVERS SUMMIT</h4>
+                            <h4 className="text-lg font-black text-white tracking-tight text-nowrap">EMMANUEL AGIDA INTERNATIONAL</h4>
                         </div>
                     </div>
 

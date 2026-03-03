@@ -33,7 +33,7 @@ export default function Header() {
                             100<span className="text-[var(--primary)]">UNDER</span>40
                         </span>
                         <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-500 mt-1">
-                            An Initiative of Achievers Summit
+                            An Initiative of Emmanuel Agida International
                         </span>
                     </div>
                 </Link>

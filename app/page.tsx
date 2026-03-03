@@ -80,7 +80,7 @@ export default function Home() {
                   The 100 Under 40 Award is not just a ceremony; it is a rigorous verification of excellence. We exist to spotlight the young visionaries who are solving the continent's most complex challenges through innovation, governance, and enterprise.
                 </p>
                 <p>
-                  Under the stewardship of the Achievers Summit, we are curating a definitive roster of high-impact leaders—building a credible network that stakeholders can trust for decades to come.
+                  Under the stewardship of Emmanuel Agida International, we are curating a definitive roster of high-impact leaders—building a credible network that stakeholders can trust for decades to come.
                 </p>
               </div>
 

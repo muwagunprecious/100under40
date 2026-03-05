@@ -5,6 +5,7 @@ export const nominationSchema = z.object({
     nomineeName: z.string().min(2, "Nominee name must be at least 2 characters"),
     nomineeEmail: z.string().email("Invalid email address"),
     nomineePhone: z.string().optional(),
+    nomineeSocial: z.string().min(3, "Social media handle/link is required"),
     nomineeAge: z.coerce.number().min(18, "Nominee must be at least 18").max(39, "Nominee must be under 40"),
     categoryId: z.string().min(1, "Please select a category"),
 

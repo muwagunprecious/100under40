@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -10,23 +11,19 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Column */}
                     <div className="space-y-6">
-                        <div className="flex flex-col">
-                            <span className="text-3xl font-black tracking-tighter leading-none text-white">
-                                100<span className="text-[var(--primary)]">UNDER</span>40
-                            </span>
-                            <span className="text-xs font-bold tracking-widest text-gray-400 uppercase">
-                                Awards
-                            </span>
+                        <Image
+                            src="/logo.jpg"
+                            alt="100 Under 40 Awards"
+                            width={80}
+                            height={80}
+                            className="rounded"
+                        />
+                        <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">
+                            An Initiative of <span className="text-white">Emmanuel Agida International</span>
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Recognizing and celebrating exceptional individuals under the age of 40 who are making significant impacts in their respective fields across Africa.
                         </p>
-
-                        {/* Initiative Branding - High Priority */}
-                        <div className="bg-[#1a1a1a] p-4 rounded-lg border border-[#333]">
-                            <p className="text-[10px] uppercase tracking-[0.4em] text-white font-black mb-1">An Initiative of</p>
-                            <h4 className="text-lg font-black text-white tracking-tight text-nowrap">EMMANUEL AGIDA INTERNATIONAL</h4>
-                        </div>
                     </div>
 
                     {/* Quick Links */}

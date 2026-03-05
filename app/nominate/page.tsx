@@ -66,7 +66,7 @@ export default function NominatePage() {
     const nextStep = async () => {
         let fieldsToValidate: (keyof NominationFormData)[] = [];
         if (currentStep === 1) {
-            fieldsToValidate = ['nomineeName', 'nomineeEmail', 'nomineePhone', 'nomineeAge'];
+            fieldsToValidate = ['nomineeName', 'nomineeEmail', 'nomineePhone', 'nomineeSocial', 'nomineeAge'];
         } else if (currentStep === 2) {
             fieldsToValidate = ['categoryId', 'achievements', 'supportingDocs'];
         }
@@ -244,6 +244,13 @@ export default function NominatePage() {
                                         placeholder="+..."
                                         {...register('nomineePhone')}
                                         error={errors.nomineePhone?.message}
+                                    />
+                                    <Input
+                                        label="Nominee Social Media (Instagram/LinkedIn)"
+                                        placeholder="@handle or profile link"
+                                        {...register('nomineeSocial')}
+                                        error={errors.nomineeSocial?.message}
+                                        required
                                     />
                                     <Input
                                         label="Age"

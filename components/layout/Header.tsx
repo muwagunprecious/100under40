@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import Button from '../ui/Button';
 import { cn } from '@/lib/utils';
@@ -26,13 +27,17 @@ export default function Header() {
             )}
         >
             <div className="container mx-auto flex items-center justify-between">
-                {/* Institutional Branding */}
+                {/* Logo */}
                 <Link href="/" className="z-50 relative">
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold tracking-tight text-white leading-none">
-                            100<span className="text-[var(--primary)]">UNDER</span>40
-                        </span>
-                        <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-500 mt-1">
+                        <Image
+                            src="/logo.jpg"
+                            alt="100 Under 40 Awards"
+                            width={38}
+                            height={38}
+                            className="rounded"
+                        />
+                        <span className="text-[9px] font-medium uppercase tracking-[0.1em] text-gray-500 mt-1">
                             An Initiative of Emmanuel Agida International
                         </span>
                     </div>

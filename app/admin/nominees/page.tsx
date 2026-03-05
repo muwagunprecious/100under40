@@ -57,6 +57,7 @@ export default async function AdminNominationsPage() {
                                         <td className="p-4">
                                             <div className="font-bold text-black">{nom.nomineeName}</div>
                                             <div className="text-gray-500">{nom.nomineeEmail}</div>
+                                            <div className="text-[10px] text-blue-600 font-bold lowercase mt-0.5">{nom.nomineeSocial || 'No Social Handle'}</div>
                                             <div className="text-xs text-gray-400 mt-1 uppercase tracking-widest font-black">Age: {nom.nomineeAge}</div>
                                         </td>
                                         <td className="p-4">

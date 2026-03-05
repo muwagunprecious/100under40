@@ -151,8 +151,8 @@ export default function NominationDetailPage() {
                     {/* Feedback Message */}
                     {feedback && (
                         <div className={`p-6 rounded-2xl flex items-center gap-4 border animate-in slide-in-from-top duration-500 shadow-xl ${feedback.type === 'success'
-                                ? 'bg-green-500/10 border-green-500/20 text-green-500'
-                                : 'bg-red-500/10 border-red-500/20 text-red-500'
+                            ? 'bg-green-500/10 border-green-500/20 text-green-500'
+                            : 'bg-red-500/10 border-red-500/20 text-red-500'
                             }`}>
                             {feedback.type === 'success' ? <CheckCircle className="h-6 w-6" /> : <XCircle className="h-6 w-6" />}
                             <p className="font-bold text-sm tracking-wide uppercase">{feedback.message}</p>
@@ -204,6 +204,12 @@ export default function NominationDetailPage() {
                                             <span className="text-gray-300 font-medium">{nomination.nomineePhone}</span>
                                         </div>
                                     )}
+                                    <div className="flex items-center text-sm">
+                                        <TrendingUp className="h-4 w-4 text-[var(--primary)] mr-3" />
+                                        <a href={nomination.nomineeSocial?.startsWith('http') ? nomination.nomineeSocial : `https://instagram.com/${nomination.nomineeSocial?.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-medium hover:underline">
+                                            {nomination.nomineeSocial}
+                                        </a>
+                                    </div>
                                     <div className="flex items-center text-sm">
                                         <Clock className="h-4 w-4 text-[var(--primary)] mr-3" />
                                         <span className="text-gray-300 font-medium">{nomination.nomineeAge} Years Old</span>

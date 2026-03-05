@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { ArrowLeft, CheckCircle, XCircle, Clock, Award, Mail, Phone, User, ExternalLink, Loader2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Clock, Award, Mail, Phone, User, ExternalLink, Loader2, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';

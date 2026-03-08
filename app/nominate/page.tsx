@@ -255,7 +255,7 @@ export default function NominatePage() {
                                     <Input
                                         label="Age"
                                         type="number"
-                                        placeholder="Must be 18-39"
+                                        placeholder="Must be 18-40"
                                         {...register('nomineeAge')}
                                         error={errors.nomineeAge?.message}
                                         required

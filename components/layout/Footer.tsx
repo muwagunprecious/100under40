@@ -1,9 +1,43 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email) return;
+
+        setStatus('loading');
+        try {
+            const response = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage(data.message);
+                setEmail('');
+            } else {
+                setStatus('error');
+                setMessage(data.error || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('Failed to connect to the server.');
+        }
+    };
 
     return (
         <footer className="bg-black text-white pt-16 pb-8">
@@ -71,19 +105,41 @@ export default function Footer() {
                         <p className="text-gray-400 text-sm mb-4">
                             Subscribe to our newsletter for updates on nominations and voting.
                         </p>
-                        <form className="space-y-3">
-                            <input
-                                type="email"
-                                placeholder="Your email address"
-                                className="w-full bg-[#1a1a1a] border border-[#333] rounded px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
-                            />
-                            <button
-                                type="button"
-                                className="w-full bg-[var(--primary)] text-black font-bold text-sm py-2 rounded hover:bg-[var(--primary-hover)] transition-colors"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
+
+                        {status === 'success' ? (
+                            <div className="bg-green-500/10 border border-green-500/20 p-4 rounded-lg flex items-start gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                                <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
+                                <p className="text-sm text-green-500 font-medium">{message}</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-3">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Your email address"
+                                    required
+                                    className="w-full bg-[#1a1a1a] border border-[#333] rounded px-4 py-2 text-sm text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
+                                />
+                                {status === 'error' && (
+                                    <p className="text-xs text-red-500 font-medium">{message}</p>
+                                )}
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="w-full bg-[var(--primary)] disabled:opacity-50 text-black font-bold text-sm py-2 rounded hover:bg-[var(--primary-hover)] transition-colors flex items-center justify-center gap-2"
+                                >
+                                    {status === 'loading' ? (
+                                        <>
+                                            <Loader2 className="h-4 w-4 animate-spin" />
+                                            Subscribing...
+                                        </>
+                                    ) : (
+                                        'Subscribe'
+                                    )}
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
 

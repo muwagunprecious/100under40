@@ -37,6 +37,14 @@ async function initDb() {
             );
         `;
 
+        await sql`
+            CREATE TABLE IF NOT EXISTS "Newsletter" (
+                "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                "email" TEXT UNIQUE NOT NULL,
+                "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
         // Ensure default settings exist
         const settingsCount = await sql`SELECT count(*) FROM "Settings" WHERE id = 'global'`;
         if (settingsCount[0].count === '0') {

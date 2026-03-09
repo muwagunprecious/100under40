@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Star, Users, Award, Calendar, Globe, Zap, Target, Heart, BookOpen, Sprout, Radio } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
@@ -95,11 +96,23 @@ export default function Home() {
             </div>
 
             {/* Visual / Decor */}
-            <div className="lg:w-1/2 relative bg-[#050505] border border-white/5 p-8 flex items-end min-h-[400px]">
-              <div className="absolute top-0 right-0 p-4">
+            <div className="lg:w-1/2 relative bg-[#050505] border border-white/5 overflow-hidden flex items-end min-h-[400px]">
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/selection-cycle.jpg"
+                  alt="2026 Selection Cycle"
+                  fill
+                  className="object-cover opacity-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+              </div>
+
+              <div className="absolute top-0 right-0 p-4 z-10">
                 <Star className="w-12 h-12 text-[var(--primary)]/20" />
               </div>
-              <div className="space-y-4">
+
+              <div className="relative z-10 p-8 space-y-4 w-full">
                 <div className="text-4xl font-light text-white">2026</div>
                 <div className="h-[1px] w-full bg-white/10"></div>
                 <div className="text-xs uppercase tracking-widest text-[#666]">Official Selection Cycle</div>

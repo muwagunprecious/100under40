@@ -1,12 +1,22 @@
 import { ArrowRight, CheckCircle, Calendar, Users, Award } from 'lucide-react';
 import Card, { CardContent } from '@/components/ui/Card';
+import Image from 'next/image';
 
 export default function AboutPage() {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="bg-black text-white py-20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,_var(--primary-dark)_0%,_transparent_25%)] opacity-20"></div>
+            <section className="bg-black text-white py-32 relative overflow-hidden min-h-[500px] flex items-center">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/speaker-award.jpg"
+                        alt="Africa's Leaders"
+                        fill
+                        className="object-cover opacity-30 object-top"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+                </div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl">
                         <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">

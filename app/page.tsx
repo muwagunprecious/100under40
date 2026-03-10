@@ -8,8 +8,18 @@ export default function Home() {
     <div className="bg-[#050505] min-h-screen text-white selection:bg-[var(--primary)] selection:text-black">
 
       {/* ================= HERO SECTION ================= */}
-      {/* Design Guide: Full-width black, subtle grain, calm centered typography */}
-      <section className="relative h-screen min-h-[800px] flex items-center justify-center border-b border-white/5 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat opacity-95">
+      {/* Design Guide: Full-width image background, calm centered typography */}
+      <section className="relative h-screen min-h-[800px] flex items-center justify-center border-b border-white/5 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero-award.jpg"
+            alt="100 Under 40 Hero"
+            fill
+            className="object-cover opacity-30 object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505]"></div>
+        </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center max-w-5xl">
           {/* Institutional Label */}
@@ -167,8 +177,18 @@ export default function Home() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-32 bg-[#0A0A0A] border-t border-white/5 text-center">
-        <div className="container mx-auto px-4 max-w-3xl">
+      <section className="relative py-32 bg-[#0A0A0A] border-t border-white/5 text-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/group-award.jpg"
+            alt="100 Under 40 Community"
+            fill
+            className="object-cover opacity-20 object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 max-w-3xl relative z-10">
           <h2 className="text-4xl text-white mb-6 font-black uppercase tracking-tighter">
             NOMINATION FOR 2026 100UNDER 40 ACHIEVERS AWARD IS OFFICIALLY OPENED
           </h2>

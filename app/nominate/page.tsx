@@ -74,13 +74,27 @@ export default function NominatePage() {
         const isValid = await trigger(fieldsToValidate);
         if (isValid) {
             setCurrentStep((prev) => Math.min(prev + 1, totalSteps));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            setTimeout(() => {
+                const formElement = document.getElementById('step-form-container');
+                if (formElement) {
+                    const y = formElement.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 50);
         }
     };
 
     const prevStep = () => {
         setCurrentStep((prev) => Math.max(prev - 1, 1));
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+            const formElement = document.getElementById('step-form-container');
+            if (formElement) {
+                const y = formElement.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        }, 50);
     };
 
     const onSubmit = async (data: NominationFormData) => {
@@ -176,7 +190,7 @@ export default function NominatePage() {
     return (
         <div className="min-h-screen bg-[var(--grey-soft)] py-20 px-4">
             <NominationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
-            <div className="container mx-auto max-w-3xl">
+            <div className="container mx-auto max-w-3xl" id="nomination-form">
                 <div className="text-center mb-12">
                     <h1 className="text-5xl font-black mb-6 tracking-tighter text-black">Nominate a Leader</h1>
                     <div className="max-w-2xl mx-auto space-y-4">
@@ -203,7 +217,7 @@ export default function NominatePage() {
                     </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div id="step-form-container" className="bg-white rounded-2xl shadow-xl overflow-hidden scroll-mt-24">
                     <div className="bg-black p-8 text-white text-center">
                         <h2 className="text-xl font-bold mb-2 uppercase tracking-tighter">Official Submission Form</h2>
                         <p className="text-xs font-medium text-gray-400">Step {currentStep}: {

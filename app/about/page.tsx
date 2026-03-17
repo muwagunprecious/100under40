@@ -12,6 +12,7 @@ export default function AboutPage() {
                         src="/speaker-award.jpg"
                         alt="Africa's Leaders"
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-30 object-top"
                         priority
                     />

@@ -45,6 +45,20 @@ async function initDb() {
             );
         `;
 
+        await sql`
+            CREATE TABLE IF NOT EXISTS "CommunityApplication" (
+                "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                "fullName" TEXT NOT NULL,
+                "email" TEXT NOT NULL,
+                "state" TEXT NOT NULL,
+                "productUnit" TEXT,
+                "serviceUnit" TEXT,
+                "callLine" TEXT NOT NULL,
+                "whatsAppNumber" TEXT NOT NULL,
+                "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
         // Ensure default settings exist
         const settingsCount = await sql`SELECT count(*) FROM "Settings" WHERE id = 'global'`;
         if (settingsCount[0].count === '0') {

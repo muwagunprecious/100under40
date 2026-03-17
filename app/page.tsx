@@ -15,6 +15,7 @@ export default function Home() {
             src="/hero-award.jpg"
             alt="100 Under 40 Hero"
             fill
+            sizes="100vw"
             className="object-cover opacity-30 object-top"
             priority
           />
@@ -113,6 +114,7 @@ export default function Home() {
                   src="/selection-cycle.jpg"
                   alt="2026 Selection Cycle"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover opacity-60"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
@@ -183,6 +185,7 @@ export default function Home() {
             src="/group-award.jpg"
             alt="100 Under 40 Community"
             fill
+            sizes="100vw"
             className="object-cover opacity-20 object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]"></div>

@@ -72,7 +72,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased bg-[var(--background)] text-[var(--foreground)]">
+      <body
+        className="font-sans antialiased bg-[var(--background)] text-[var(--foreground)]"
+        suppressHydrationWarning
+      >
         <StructuredData />
         <LayoutWrapper>
           {children}

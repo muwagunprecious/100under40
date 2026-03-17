@@ -74,6 +74,7 @@ export default function AdminLayout({
                 <nav className="flex-grow p-4 space-y-2">
                     <NavItem href="/admin/dashboard" icon={LayoutDashboard} label="Overview" />
                     <NavItem href="/admin/nominees" icon={Users} label="Nominees" />
+                    <NavItem href="/admin/community" icon={Users} label="Community" />
                     <NavItem href="/admin/newsletter" icon={Mail} label="Newsletter" />
                     <NavItem href="/admin/voting" icon={BarChart3} label="Voting Analytics" />
                     <NavItem href="/admin/settings" icon={Settings} label="Settings" />

@@ -31,3 +31,15 @@ model Newsletter {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model CommunityApplication {
+  id             String   @id @default(uuid())
+  fullName       String
+  email          String
+  state          String
+  productUnit    String?
+  serviceUnit    String?
+  callLine       String
+  whatsAppNumber String
+  createdAt      DateTime @default(now())
+}

@@ -20,3 +20,15 @@ export const nominationSchema = z.object({
 });
 
 export type NominationFormData = z.infer<typeof nominationSchema>;
+
+export const communitySchema = z.object({
+    fullName: z.string().min(2, "Full name must be at least 2 characters"),
+    email: z.string().email("Invalid email address"),
+    state: z.string().min(1, "State of residence is required"),
+    productUnit: z.string().optional(),
+    serviceUnit: z.string().optional(),
+    callLine: z.string().min(5, "Valid call line is required"),
+    whatsAppNumber: z.string().min(5, "Valid WhatsApp number is required"),
+});
+
+export type CommunityFormData = z.infer<typeof communitySchema>;

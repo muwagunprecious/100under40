@@ -28,7 +28,6 @@ export default function TicketPage() {
                     'Awards Gala & Dinner Night — 12 Aug, 8:00 PM - Midnight',
                     'Reserved VIP Seating at all sessions',
                     'Priority Check-in & Fast-track Registration',
-                    'Official 100 Under 40 Award Trophy (presented on stage)',
                     'Certificate of Participation',
                     'Feature in the 100 Under 40 Magazine',
                     'Admits 2 people'
@@ -65,7 +64,6 @@ export default function TicketPage() {
                     'Awards Gala & Dinner Night — 12 Aug, 8:00 PM - Midnight',
                     'Reserved VIP Seating at all sessions',
                     'Priority Check-in & Fast-track Registration',
-                    'Official 100 Under 40 Award Trophy (presented on stage)',
                     'Certificate of Participation',
                     'Feature in the 100 Under 40 Magazine',
                     'Access to Investor Roundtable & Deal Room',

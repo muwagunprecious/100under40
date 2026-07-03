@@ -34,9 +34,21 @@ export default function Home() {
           </h1>
 
           {/* Muted Subtext */}
-          <p className="text-lg md:text-xl text-gray-300 font-medium max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 font-medium max-w-3xl mx-auto mb-8 leading-relaxed">
             The 100 Under 40 Award is the continent’s premier recognition platform, identifying exceptional young Africans driving measurable, sustainable, and transformative impact across 10 strategic sectors.
           </p>
+
+          {/* Event Details */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full text-sm font-medium backdrop-blur-sm">
+              <span className="text-lg">⏱️</span>
+              <span className="text-white tracking-wide">11th & 12th August, 2026</span>
+            </div>
+            <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full text-sm font-medium backdrop-blur-sm">
+              <span className="text-lg">🏟️</span>
+              <span className="text-white tracking-wide">Lagos Oriental Hotel, Victoria Island.</span>
+            </div>
+          </div>
 
           {/* Deliberate CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

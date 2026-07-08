@@ -263,13 +263,13 @@ export default function AdminVotingNomineesPage() {
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <div>
-                                                        <h3 className="text-white font-bold text-sm tracking-wide">{nominee.name}</h3>
-                                                        <div className="flex items-center gap-2 mt-1">
-                                                            <span className="inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[var(--primary)]">
+                                                    <div className="min-w-0">
+                                                        <h3 className="text-white font-bold text-sm tracking-wide truncate">{nominee.name}</h3>
+                                                        <div className="flex flex-wrap items-center gap-2 mt-1">
+                                                            <span className="inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[var(--primary)] max-w-full truncate">
                                                                 {category?.name || 'General Category'}
                                                             </span>
-                                                            <span className="text-[10px] text-gray-500 font-bold uppercase">
+                                                            <span className="text-[10px] text-gray-500 font-bold uppercase shrink-0">
                                                                 {nominee.votesCount} {nominee.votesCount === 1 ? 'vote' : 'votes'}
                                                             </span>
                                                         </div>
@@ -277,7 +277,7 @@ export default function AdminVotingNomineesPage() {
                                                 </div>
                                                 <button
                                                     onClick={() => handleDelete(nominee.id)}
-                                                    className="p-2 text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                                                    className="p-2 text-gray-500 hover:text-red-500 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 cursor-pointer"
                                                 >
                                                     <Trash2 className="w-4 h-4" />
                                                 </button>

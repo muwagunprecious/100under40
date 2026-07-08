@@ -235,16 +235,16 @@ export default function AdminAwardeesPage() {
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <div>
-                                                        <h3 className="text-white font-bold text-sm tracking-wide">{awardee.name}</h3>
-                                                        <span className="inline-block mt-1 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[var(--primary)]">
+                                                    <div className="min-w-0">
+                                                        <h3 className="text-white font-bold text-sm tracking-wide truncate">{awardee.name}</h3>
+                                                        <span className="inline-block mt-1 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[var(--primary)] max-w-full truncate">
                                                             {category?.name || 'General Category'}
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <button
                                                     onClick={() => handleDelete(awardee.id)}
-                                                    className="p-2 text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                                                    className="p-2 text-gray-500 hover:text-red-500 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 cursor-pointer"
                                                 >
                                                     <Trash2 className="w-4 h-4" />
                                                 </button>

@@ -43,3 +43,22 @@ model CommunityApplication {
   whatsAppNumber String
   createdAt      DateTime @default(now())
 }
+
+model VoteNominee {
+  id          String   @id @default(uuid())
+  name        String
+  email       String?
+  bio         String?  @db.Text
+  categoryId  String
+  photoUrl    String?
+  votesCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Awardee {
+  id          String   @id @default(uuid())
+  name        String
+  categoryId  String
+  photoUrl    String?
+  createdAt   DateTime @default(now())
+}

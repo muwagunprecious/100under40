@@ -30,7 +30,7 @@ export default function TicketPage() {
                     'Priority Check-in & Fast-track Registration',
                     'Certificate of Participation',
                     'Feature in the 100 Under 40 Magazine',
-                    'Admits 2 people'
+                    'Admits 1 guest/well wisher'
                   ].map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-[var(--primary)] shrink-0 mt-0.5" />
@@ -70,7 +70,7 @@ export default function TicketPage() {
                     '100Under40 Hall Fame',
                     'Feature in The Guardian Newspaper 100 Under 40 Special Edition',
                     'Priority access to closed-door sessions & networking forums',
-                    'Admits up to 3 people'
+                    'Admits up to 3 guests/well wishers'
                   ].map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-[var(--primary)] shrink-0 mt-0.5" />

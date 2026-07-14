@@ -2,12 +2,10 @@ import postgres from 'postgres';
 
 const connectionString = process.env.DATABASE_URL;
 
-if (!connectionString) {
-    throw new Error('DATABASE_URL environment variable is missing. Please add it to your environment.');
-}
-
-const sql = postgres(connectionString, {
-    ssl: 'require',
+// During build time (e.g. Vercel deployment), DATABASE_URL may be missing.
+// We use a placeholder to allow module evaluation to succeed, throwing only when a query is executed.
+const sql = postgres(connectionString || 'postgres://postgres:postgres@localhost:5432/postgres', {
+    ssl: connectionString ? 'require' : false,
     max: 10,
     idle_timeout: 20,
     connect_timeout: 30,

@@ -12,7 +12,34 @@ export default function TicketPage() {
             <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">Select a participation tier for the award ceremony. Each package is tailored to maximize your recognition, networking, and celebration.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* General Admission */}
+            <div className="bg-[#050505] border border-white/10 rounded-xl overflow-hidden flex flex-col transition-all hover:border-[var(--primary)]/50">
+              <div className="p-8 border-b border-white/10 bg-white/5">
+                <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-wide">General Admission</h3>
+                <div className="text-[var(--primary)] text-4xl font-black">₦50,000</div>
+              </div>
+              <div className="p-8 flex-1 flex flex-col">
+                <ul className="space-y-4 mb-8 flex-1">
+                  {[
+                    'Gala Red Carpet — 12th August',
+                    'Awards & Gala Night Access',
+                    'Certificate of Participation'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-[var(--primary)] shrink-0 mt-0.5" />
+                      <span className="text-gray-300 font-medium text-sm leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href="https://paystack.shop/pay/100under40" target="_blank" rel="noreferrer" className="block w-full">
+                  <Button variant="outline" className="w-full py-4 border-white/20 text-white hover:bg-white hover:text-black font-bold uppercase tracking-widest text-sm">
+                    Secure General Admission
+                  </Button>
+                </a>
+              </div>
+            </div>
+
             {/* Standard Experience */}
             <div className="bg-[#050505] border border-white/10 rounded-xl overflow-hidden flex flex-col transition-all hover:border-[var(--primary)]/50">
               <div className="p-8 border-b border-white/10 bg-white/5">

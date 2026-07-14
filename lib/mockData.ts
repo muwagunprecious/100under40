@@ -33,7 +33,7 @@ export const categories = [
     },
     {
         id: '6',
-        name: 'Media & Digital Influence',
+        name: 'Media & Communications',
         description: 'Honoring the storytellers and digital architects shaping Africa\'s narrative and global media presence.',
         order: 6
     },
@@ -194,7 +194,7 @@ export const votingStats = {
         { category: 'Business & Entrepreneurship', votes: 2800, percentage: 22 },
         { category: 'Social Innovation, Philanthropy & Development', votes: 2100, percentage: 17 },
         { category: 'Creative & Cultural Industries', votes: 1800, percentage: 14 },
-        { category: 'Media & Digital Influence', votes: 1200, percentage: 10 },
+        { category: 'Media & Communications', votes: 1200, percentage: 10 },
         { category: 'Healthcare & Wellness', votes: 900, percentage: 7 },
         { category: 'Education & Human Capital Development', votes: 450, percentage: 4 }
     ],
@@ -204,7 +204,7 @@ export const votingStats = {
         { name: 'Zainab Ahmed', category: 'Social Innovation, Philanthropy & Development', votes: 1340 },
         { name: 'Michael Kibuuka', category: 'Technology & Innovation', votes: 1180 },
         { name: 'Amara Diop', category: 'Creative & Cultural Industries', votes: 980 },
-        { name: 'Kwame Mensah', category: 'Media & Digital Influence', votes: 850 }
+        { name: 'Kwame Mensah', category: 'Media & Communications', votes: 850 }
     ]
 };
 

@@ -174,7 +174,7 @@ export default function Home() {
               { title: 'Education & Human Capital Development', icon: BookOpen },
               { title: 'Agriculture & Food Systems', icon: Sprout },
               { title: 'Social Innovation, Philanthropy & Development', icon: Heart },
-              { title: 'Media & Digital Influence', icon: Radio },
+              { title: 'Media & Communications', icon: Radio },
             ].map((cat, i) => (
               <Link href="/categories" key={i}>
                 <div className="group p-8 border border-white/5 bg-[#0A0A0A] hover:border-[var(--primary)]/30 transition-all duration-300 min-h-[180px] flex flex-col justify-between cursor-pointer">

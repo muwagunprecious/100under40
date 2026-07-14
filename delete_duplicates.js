@@ -21,7 +21,8 @@ const categories = [
     { id: '8', name: 'Education & Human Capital Development' },
     { id: '9', name: 'Agriculture & Food Systems' },
     { id: '10', name: 'Social Innovation, Philanthropy & Development' },
-    { id: '11', name: 'Art & Entertainment' }
+    { id: '11', name: 'Art & Entertainment' },
+    { id: '12', name: 'Fashion & Beauty' }
 ];
 
 const categoryMap = {};

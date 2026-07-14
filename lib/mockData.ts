@@ -66,6 +66,12 @@ export const categories = [
         name: 'Art & Entertainment',
         description: 'Celebrating exceptional talent and innovation in African art, music, performance, and entertainment media.',
         order: 11
+    },
+    {
+        id: '12',
+        name: 'Fashion & Beauty',
+        description: 'Celebrating the trailblazers redefining African fashion, style, beauty, and modeling on the global stage.',
+        order: 12
     }
 ];
 

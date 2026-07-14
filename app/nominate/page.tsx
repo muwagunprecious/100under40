@@ -26,6 +26,7 @@ const categories = [
     { id: '9', name: 'Agriculture & Food Systems' },
     { id: '10', name: 'Social Innovation, Philanthropy & Development' },
     { id: '11', name: 'Art & Entertainment' },
+    { id: '12', name: 'Fashion & Beauty' },
 ];
 
 export default function NominatePage() {

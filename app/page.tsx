@@ -16,7 +16,7 @@ export default function Home() {
             alt="100 Under 40 Hero"
             fill
             sizes="100vw"
-            className="object-cover opacity-30 object-top"
+            className="object-cover opacity-55 object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505]"></div>

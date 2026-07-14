@@ -45,12 +45,12 @@ export default function Header() {
                 </Link>
 
                 {/* Clean Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-6">
                     {['About', 'Categories', 'Community', 'Nominees', 'Awardees', 'Ticket'].map((item) => (
                         <Link
                             key={item}
                             href={`/${item.toLowerCase()}`}
-                            className="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
+                            className="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-white transition-all py-2.5 px-3 rounded-md hover:bg-white/5 cursor-pointer"
                         >
                             {item}
                         </Link>
@@ -60,7 +60,7 @@ export default function Header() {
                 {/* Minimal CTA */}
                 <div className="hidden md:block">
                     <Link href="/nominate">
-                        <Button size="sm" variant="primary" className="px-6 rounded-sm font-bold tracking-tight">
+                        <Button size="sm" variant="primary" className="px-6 rounded-sm font-bold tracking-tight cursor-pointer">
                             Nominate Now
                         </Button>
                     </Link>
@@ -68,7 +68,7 @@ export default function Header() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden z-50 text-white p-2"
+                    className="md:hidden z-50 text-white p-2 cursor-pointer"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -77,8 +77,8 @@ export default function Header() {
 
             {/* Mobile Menu Overlay */}
             <div className={cn(
-                "fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300",
-                isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+                "fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 md:hidden",
+                isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-full pointer-events-none"
             )}>
                 {['About', 'Categories', 'Community', 'Nominees', 'Awardees', 'Ticket'].map((item) => (
                     <Link

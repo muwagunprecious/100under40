@@ -60,6 +60,12 @@ export const categories = [
         name: 'Social Innovation, Philanthropy & Development',
         description: 'Spotlighting the change-makers building resilient communities and solving complex social challenges.',
         order: 10
+    },
+    {
+        id: '11',
+        name: 'Art & Entertainment',
+        description: 'Celebrating exceptional talent and innovation in African art, music, performance, and entertainment media.',
+        order: 11
     }
 ];
 

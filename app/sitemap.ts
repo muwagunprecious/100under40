@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/categories',
         '/nominees',
         '/nominate',
-        '/vote',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),

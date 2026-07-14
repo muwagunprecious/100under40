@@ -46,24 +46,12 @@ export default async function NomineeProfilePage({ params }: { params: Promise<{
                             </div>
                             <h1 className="text-3xl md:text-5xl font-black text-black md:text-white md:mix-blend-difference">{nominee.name}</h1>
                         </div>
-                        <div className="pb-4 shrink-0 hidden md:block">
-                            <Link href={`/vote?nomineeId=${nominee.id}`}>
-                                <Button size="lg" className="rounded-full px-8 text-lg font-bold shadow-[0_0_20px_rgba(200,255,0,0.3)]">
-                                    Vote for {nominee.name.split(' ')[0]}
-                                </Button>
-                            </Link>
-                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <div className="container mx-auto px-4 pt-12 text-center md:hidden mb-8">
-                <Link href={`/vote?nomineeId=${nominee.id}`}>
-                    <Button size="lg" className="w-full rounded-full text-lg font-bold">
-                        Vote for {nominee.name.split(' ')[0]}
-                    </Button>
-                </Link>
-            </div>
+
 
             {/* Content */}
             <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12">

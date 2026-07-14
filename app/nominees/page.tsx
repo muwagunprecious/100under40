@@ -118,9 +118,9 @@ export default function NomineesPage() {
                                         )}
                                     </div>
                                     <div className="p-6 pt-0">
-                                        <Link href={`/vote?nomineeId=${nom.id}`} className="w-full">
+                                        <Link href={`/nominees/${nom.id}`} className="w-full">
                                             <button className="w-full h-12 bg-white/5 hover:bg-[var(--primary)] hover:text-black border border-white/10 hover:border-transparent transition-all rounded-xl font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 group-hover:translate-y-0 duration-300 cursor-pointer">
-                                                Cast Your Vote
+                                                View Profile
                                                 <ArrowRight className="w-3.5 h-3.5" />
                                             </button>
                                         </Link>

@@ -15,14 +15,15 @@ const categories = [
     { id: '2', name: 'Technology & Innovation' },
     { id: '3', name: 'Governance, Policy & Public Service' },
     { id: '4', name: 'Finance & Investment' },
-    { id: '5', name: 'Creative & Cultural Industries' },
+    { id: '5', name: 'Content & Creative' },
     { id: '6', name: 'Media & Communications' },
     { id: '7', name: 'Healthcare & Wellness' },
     { id: '8', name: 'Education & Human Capital Development' },
     { id: '9', name: 'Agriculture & Food Systems' },
     { id: '10', name: 'Social Innovation, Philanthropy & Development' },
-    { id: '11', name: 'Art & Entertainment' },
-    { id: '12', name: 'Fashion & Beauty' }
+    { id: '11', name: 'Art & Culture' },
+    { id: '12', name: 'Fashion & Beauty' },
+    { id: '13', name: 'Entertainment & Literature' }
 ];
 
 const categoryMap = {};

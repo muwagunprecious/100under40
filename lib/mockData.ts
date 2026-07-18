@@ -27,8 +27,8 @@ export const categories = [
     },
     {
         id: '5',
-        name: 'Creative & Cultural Industries',
-        description: 'Celebrating the vanguard of African creativity, from film and fashion to visual arts and cultural preservation.',
+        name: 'Content & Creative',
+        description: 'Celebrating the vanguard of African creativity, from digital content creation to art direction and design.',
         order: 5
     },
     {
@@ -63,8 +63,8 @@ export const categories = [
     },
     {
         id: '11',
-        name: 'Art & Entertainment',
-        description: 'Celebrating exceptional talent and innovation in African art, music, performance, and entertainment media.',
+        name: 'Art & Culture',
+        description: 'Celebrating exceptional talent and innovation in African art, music, performance, and cultural preservation.',
         order: 11
     },
     {
@@ -72,6 +72,12 @@ export const categories = [
         name: 'Fashion & Beauty',
         description: 'Celebrating the trailblazers redefining African fashion, style, beauty, and modeling on the global stage.',
         order: 12
+    },
+    {
+        id: '13',
+        name: 'Entertainment & Literature',
+        description: 'Honoring outstanding contributions to African literature, writing, comedy, film production, and entertainment.',
+        order: 13
     }
 ];
 
@@ -205,7 +211,7 @@ export const votingStats = {
         { category: 'Technology & Innovation', votes: 3200, percentage: 26 },
         { category: 'Business & Entrepreneurship', votes: 2800, percentage: 22 },
         { category: 'Social Innovation, Philanthropy & Development', votes: 2100, percentage: 17 },
-        { category: 'Creative & Cultural Industries', votes: 1800, percentage: 14 },
+        { category: 'Content & Creative', votes: 1800, percentage: 14 },
         { category: 'Media & Communications', votes: 1200, percentage: 10 },
         { category: 'Healthcare & Wellness', votes: 900, percentage: 7 },
         { category: 'Education & Human Capital Development', votes: 450, percentage: 4 }
@@ -215,7 +221,7 @@ export const votingStats = {
         { name: 'David Osei', category: 'Business & Entrepreneurship', votes: 1620 },
         { name: 'Zainab Ahmed', category: 'Social Innovation, Philanthropy & Development', votes: 1340 },
         { name: 'Michael Kibuuka', category: 'Technology & Innovation', votes: 1180 },
-        { name: 'Amara Diop', category: 'Creative & Cultural Industries', votes: 980 },
+        { name: 'Amara Diop', category: 'Content & Creative', votes: 980 },
         { name: 'Kwame Mensah', category: 'Media & Communications', votes: 850 }
     ]
 };

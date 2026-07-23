@@ -46,7 +46,7 @@ export default function Header() {
 
                 {/* Clean Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-6">
-                    {['About', 'Categories', 'Community', 'Nominees', 'Awardees', 'Ticket'].map((item) => (
+                    {['About', 'Categories', 'Community', 'Nominees', 'Awardees'].map((item) => (
                         <Link
                             key={item}
                             href={`/${item.toLowerCase()}`}
@@ -80,7 +80,7 @@ export default function Header() {
                 "fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 md:hidden",
                 isMobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-full pointer-events-none"
             )}>
-                {['About', 'Categories', 'Community', 'Nominees', 'Awardees', 'Ticket'].map((item) => (
+                {['About', 'Categories', 'Community', 'Nominees', 'Awardees'].map((item) => (
                     <Link
                         key={item}
                         href={`/${item.toLowerCase()}`}
